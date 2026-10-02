@@ -11,8 +11,6 @@ vim.api.nvim_create_autocmd('ColorScheme', {
         highlight('Boolean', { link = 'String' })
         highlight('Character', { link = 'String' })
         highlight('@constructor.python', { link = '@function' })
-        -- highlight('@keyword', { fg = '#444444' })
-        -- highlight('@keyword.function', { fg = '#444444' })
     end,
 })
 

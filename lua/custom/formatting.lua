@@ -26,9 +26,9 @@ local formatters = {
         end,
     },
     rustfmt = {
-        filetyps = { 'rust' },
-        cmds = function(filepath)
-            return { { 'rustfmt', filepath } }
+        filetypes = { 'rust' },
+        cmds = function()
+            return { { 'rustfmt' } }
         end,
     },
 }
@@ -103,7 +103,7 @@ local format_buffer = function(bufnr, ft, filepath)
             local ok, out, err = run_cmd(c, current)
             if not ok then
                 vim.fn.winrestview(view)
-                vim.notify(('Formatting failed: %s'):format(err:gsub('^%s+', '')), vim.log.levels.ERROR)
+                -- vim.notify(('Formatting failed: %s'):format(err:gsub('^%s+', '')), vim.log.levels.ERROR)
                 return
             end
             current = out
@@ -118,12 +118,12 @@ local format_buffer = function(bufnr, ft, filepath)
     vim.fn.winrestview(view)
 end
 
-
-vim.api.nvim_create_autocmd('BufWritePost', {
-    callback = function(args)
-        if not vim.bo[args.buf].modifiable or vim.bo[args.buf].buftype ~= '' then
-            return
-        end
-        format_buffer(args.buf, vim.bo[args.buf].filetype, args.file)
-    end,
-})
+vim.keymap.set('n', '<leader>fo', function()
+    local bufnr = vim.api.nvim_get_current_buf()
+    if not vim.bo[bufnr].modifiable or vim.bo[bufnr].buftype ~= '' then
+        return
+    end
+    local bufnm = vim.api.nvim_buf_get_name(bufnr)
+    format_buffer(bufnr, vim.bo[bufnr].filetype, bufnm)
+    vim.cmd [[silent write]]
+end)

@@ -17,21 +17,12 @@ vim.lsp.config['lua_ls'] = {
 }
 
 -- python
-vim.lsp.config['basedpyright'] = {
-    cmd = { 'basedpyright-langserver', '--stdio' },
+vim.lsp.config['pyrefly'] = {
+    cmd = { 'pyrefly', 'lsp' },
     filetypes = { 'python' },
-    root_markers = { 'pyproject.toml' },
-    settings = {
-        basedpyright = {
-            disableOrganizeImports = true,
-            analysis = {
-                autoSearchPaths = true,
-                autoImportCompletions = true,
-                useLibraryCodeForTypes = true,
-                diagnosticMode = 'workspace',
-            },
-        },
-    },
+    -- on_attach = function(client, bufnr)
+    --     require('workspace-diagnostics').populate_workspace_diagnostics(client, bufnr)
+    -- end,
 }
 
 vim.lsp.config['ruff'] = {
