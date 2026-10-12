@@ -28,7 +28,7 @@ local formatters = {
     rustfmt = {
         filetypes = { 'rust' },
         cmds = function()
-            return { { 'rustfmt' } }
+            return { { 'rustfmt', "--edition", "2024" } }
         end,
     },
 }
