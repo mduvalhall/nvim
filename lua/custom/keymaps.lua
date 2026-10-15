@@ -33,7 +33,7 @@ vim.keymap.set('n', 'grr', fzf.lsp_references)
 vim.keymap.set('n', 'gd', fzf.lsp_definitions)
 vim.keymap.set('n', 'gD', fzf.lsp_declarations)
 vim.keymap.set('n', 'gt', fzf.lsp_typedefs)
-vim.keymap.set('n', 'ga', fzf.lsp_code_actions)
+vim.keymap.set('n', 'ca', fzf.lsp_code_actions)
 
 -- lazygit
 vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<cr>')
@@ -41,6 +41,7 @@ vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<cr>')
 -- window
 vim.keymap.set('n', '<C-w><', '<C-w>10<')
 vim.keymap.set('n', '<C-w>>', '<C-w>10>')
+
 
 -- update TBD TS
 vim.keymap.set('n', '<leader>u', function()
