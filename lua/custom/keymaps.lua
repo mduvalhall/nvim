@@ -1,3 +1,6 @@
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+vim.g.mapleader = ' '
+
 -- general
 vim.keymap.set('n', '<Left>', 'h')
 vim.keymap.set('n', '<Down>', 'j')
@@ -26,7 +29,10 @@ vim.keymap.set('n', '<leader>ff', fzf.files)
 vim.keymap.set('n', '<leader>fs', fzf.live_grep)
 vim.keymap.set('n', '<leader>fc', fzf.grep_cword)
 vim.keymap.set('n', '<leader>fdd', fzf.diagnostics_document)
-vim.keymap.set('n', '<leader>fdw', fzf.diagnostics_workspace)
+vim.keymap.set('n', '<leader>fdw', function()
+    vim.lsp.buf.workspace_diagnostics()
+    fzf.diagnostics_workspace()
+end)
 vim.keymap.set('n', '<leader><leader>', fzf.buffers)
 vim.keymap.set('n', 'gi', fzf.lsp_implementations)
 vim.keymap.set('n', 'grr', fzf.lsp_references)
@@ -41,7 +47,6 @@ vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<cr>')
 -- window
 vim.keymap.set('n', '<C-w><', '<C-w>10<')
 vim.keymap.set('n', '<C-w>>', '<C-w>10>')
-
 
 -- update TBD TS
 vim.keymap.set('n', '<leader>u', function()
