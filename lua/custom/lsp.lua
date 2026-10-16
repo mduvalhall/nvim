@@ -1,5 +1,10 @@
+local configure_and_enable = function(ls, configuration)
+    vim.lsp.config[ls] = configuration
+    vim.lsp.enable(ls)
+end
+
 -- lua
-vim.lsp.config['lua_ls'] = {
+configure_and_enable('lua_ls', {
     cmd = { 'lua-language-server' },
     filetypes = { 'lua' },
     root_markers = { '.git' },
@@ -14,27 +19,30 @@ vim.lsp.config['lua_ls'] = {
             },
         },
     },
-}
+})
 
 -- python
-vim.lsp.config['pyrefly'] = {
+configure_and_enable('pyrefly', {
     cmd = { 'pyrefly', 'lsp' },
     filetypes = { 'python' },
-    -- on_attach = function(client, bufnr)
-    --     require('workspace-diagnostics').populate_workspace_diagnostics(client, bufnr)
-    -- end,
-}
+})
 
-vim.lsp.config['ruff'] = {
+configure_and_enable('typ', {
+    cmd = { 'ty', 'server' },
+    filetypes = { 'python' },
+    root_markers = { 'ty.toml', 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', '.git' },
+})
+
+configure_and_enable('ruff', {
     cmd = { 'ruff', 'server' },
     filetypes = { 'python' },
     root_markers = { 'pyproject.toml' },
-}
+})
 
 -- vue
 local mason_packages = vim.fn.stdpath('data') .. '/mason/packages'
 local vue_ls_path = mason_packages .. '/vue-language-server/node_modules/@vue/language-server'
-vim.lsp.config['ts_ls'] = {
+configure_and_enable('ts_ls', {
     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
     init_options = {
         plugins = {
@@ -45,27 +53,4 @@ vim.lsp.config['ts_ls'] = {
             },
         },
     },
-}
-
--- ocaml
-vim.lsp.config['ocamlls'] = {
-    cmd = { 'ocamllsp' },
-    filetypes = {
-        'ocaml',
-        'ocaml.interface',
-        'ocaml.menhir',
-        'ocaml.ocamllex',
-        'reason',
-        'dune',
-    },
-    root_markers = {
-        '*.opam',
-        'esy.json',
-        'package.json',
-        'dune-project',
-        'dune-workspace',
-        '.git',
-    },
-}
-
-vim.lsp.enable('ocamlls')
+})
