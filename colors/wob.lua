@@ -15,12 +15,12 @@ end
 local palette = {
     bg = '#012456',
     -- shades on a gradient from bg to light blue #9ec4ff
-    faint = '#305489',   -- listchars
+    faint = '#FFFFFF',   -- listchars
     comment = '#5074ab', -- comments / number column
-    str = '#7ca0db',     -- strings
-    const = '#7ca0db',   -- constants, numbers, booleans
-    fun = '#9ec4ff',     -- functions, types, constructors
-    fg = '#c3cde0',      -- everything else
+    str = '#FFFFFF',     -- strings
+    const = '#FFFFFF',   -- constants, numbers, booleans
+    fun = '#8FB2FF',     -- functions, types, constructors
+    fg = '#FFFFFF',      -- everything else
 }
 
 -- editor
