@@ -2,6 +2,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.gruvbox_material_background = 'soft'
 
+vim.opt.termguicolors = true
 vim.opt.backspace = 'indent,eol,start'
 vim.opt.number = true
 vim.opt.relativenumber = true
