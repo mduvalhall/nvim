@@ -3,6 +3,7 @@ local configure_and_enable = function(ls, configuration)
     vim.lsp.enable(ls)
 end
 
+
 -- lua
 configure_and_enable('lua_ls', {
     cmd = { 'lua-language-server' },
