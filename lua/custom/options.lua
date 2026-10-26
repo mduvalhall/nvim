@@ -31,6 +31,7 @@ vim.opt.list = false
 vim.opt.listchars = { leadmultispace = '.   ', tab = '.  ' }
 vim.opt.guicursor = 'n-v-c:block,i-ci-ve:ver25,r-cr-o:hor20'
 vim.g.termfeatures = { sixel = false }
+vim.opt.ttimeoutlen = 0
 
 vim.filetype.add({
     extension = {
