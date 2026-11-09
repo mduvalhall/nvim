@@ -117,7 +117,7 @@ local groups = {
     Statement = { fg = p.keyword }, -- Keyword, Conditional, Repeat, Exception link here by default
     Include = { link = 'Statement' },
     Label = { fg = p.blue },
-    Operator = { fg = p.punct },
+    Operator = { fg = p.fg },
     PreProc = { fg = p.fg }, -- Define, Macro, PreCondit link here by default
     Type = { fg = p.type },
     StorageClass = { fg = p.fg },
